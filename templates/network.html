@@ -1,0 +1,114 @@
+{% extends "_base.html" %}
+{% block title %}AS212625{% endblock %}
+
+{% block css %}
+<style>
+  .table tbody tr {
+    border: none !important;
+  }
+</style>
+{% endblock %}
+
+{% from '_macro.html' import badge, card, fas, link %}
+
+{% set vm = badge("VM", "badge-danger") %}
+
+{% macro entry(name, badge) %}
+  {% set content = caller() %}
+  {% call card(name, badge=badge, title_class="mb-5") %}
+    <table class="table table-no-outer-padding">
+      <tbody>
+        {{ content }}
+      </tbody>
+    </table>
+  {% endcall %}
+{% endmacro %}
+
+{% macro line(title, value) %}
+  <tr><td class="w-quarter pb-0">{{ title }}</td><td class="text-muted pb-0">{{ value }}</td></tr>
+{% endmacro %}
+
+{% block main %}
+<div class="content">
+  <h1 class="text-center">AS212625</h1>
+</div>
+
+<div class="content">
+  <div class="row">
+    <div class="col-lg-6">
+      <div class="content">
+        <h2><i class="fas fa-database"></i> Resources</h2>
+        <ul class="font-size-18">
+          <li>AS212625</li>
+          <li>2a0c:b641:2b0::/44</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="col-lg-6">
+      <div class="content">
+        <h2><i class="fas fa-network-wired"></i> Peering policy</h2>
+        <div class="font-size-18">
+          <p>I have an open peering policy. If you wish to peer, send a e-mail to noc@as212625.net</p>
+          {{ link("https://www.peeringdb.com/net/24896", "PeeringDB " + fas("arrow-right"))}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="content">
+  <h2>Devices</h2>
+
+  <h3>Router</h3>
+  <div class="row">
+    {% call entry("cr1-dus6-sp", badge=[vm]) %}
+      {{ line("Location", "Düsseldorf, Deutschland") }}
+      {{ line("Hostname", "cr1.dus6-sp.as212625.net") }}
+      {{ line("Provider", link("https://www.servperso.net/", "Servperso")) }}
+      {{ line("IXP", "LocIX DUS/FRA") }}
+    {% endcall %}
+
+    {% call entry("ar1-rms") %}
+      {{ line("Location", "Home, Reims, France") }}
+      {{ line("Hostname", "ar1.rms.as212625.net") }}
+      {{ line("Device", "MikroTik RB4011") }}
+    {% endcall %}
+
+    {#% call entry("cr1-rms", badge=[badge("Planned")]) %}
+      {{ line("Location", "Home, Reims, France") }}
+      {{ line("Hostname", "cr1.rms.as212625.net") }}
+      {{ line("Device", "N/A") }}
+    {% endcall %#}
+  </div>
+
+  <h3>Server</h3>
+  <div class="row">
+    {% call entry("h1-rms") %}
+      {{ line("Location", "Home, Reims, France") }}
+      {{ line("Hostname", "h1.rms.as212625.net") }}
+      {{ line("Device", "HPE MicroServer Gen 10") }}
+    {% endcall %}
+
+    {% call entry("h1-dus6-my", badge=[vm]) %}
+      {{ line("Location", "Düsseldorf, Deutschland") }}
+      {{ line("Hostname", "h1.dus6-my.as212625.net") }}
+      {{ line("Provider", link("https://www.myloc.de/en/", "myLoc")) }}
+    {% endcall %}
+  </div>
+
+  <h3>Misc</h3>
+  <div class="row">
+    {% call entry("ap1-rms", badge=[badge("Planned")]) %}
+      {{ line("Location", "Home, Reims, France") }}
+      {{ line("Device", "MikroTik cAP ac") }}
+    {% endcall %}
+
+
+    {% call entry("ap2-rms") %}
+      {{ line("Location", "Home, Reims, France") }}
+      {{ line("Device", "TP-Link Archer C6") }}
+    {% endcall %}
+  </div>
+</div>
+{% endblock %}

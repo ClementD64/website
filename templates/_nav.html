@@ -1,0 +1,44 @@
+{% set pages = {
+  "Accueil": "/",
+  "Réseau": "/network",
+  "Projets": "/projects",
+} %}
+
+{% from '_macro.html' import fab %}
+
+<nav class="navbar">
+  <a href="/" class="navbar-brand">Clément Dubreuil</a>
+  <span id="version" class="navbar-text text-monospace" data-toggle="tooltip" data-title="It's my age" data-placement="bottom"></span>
+
+  <ul class="navbar-nav d-none d-md-flex">
+    {% for page, url in pages.items() %}
+      <li class="nav-item {{'active' if active_page == url}}">
+        <a href="{{ url }}" class="nav-link">{{ page }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+
+  <ul class="navbar-nav d-none d-md-flex ml-auto">
+    <li class="nav-item"><a href="https://github.com/ClementD64" class="nav-link">Github&nbsp;{{fab("github")}}</a></li>
+    <li class="nav-item"><a href="https://twitter.com/ClementD64" class="nav-link">Twitter&nbsp;{{fab("twitter")}}</a></li>
+    <li class="nav-item"><a href="https://www.linkedin.com/in/clementd64/" class="nav-link">Linkedin&nbsp;{{fab("linkedin")}}</a></li>
+  </ul>
+
+  <div class="navbar-content d-md-none ml-auto">
+    <div class="dropdown with-arrow">
+      <button class="btn" data-toggle="dropdown" type="button" id="navbar-dropdown-toggle-btn-1">
+        Menu
+        <i class="fa fa-angle-down" aria-hidden="true"></i>
+      </button>
+      <div class="dropdown-menu dropdown-menu-right w-200" aria-labelledby="navbar-dropdown-toggle-btn-1">
+        {% for page, url in pages.items() %}
+          <a href="{{ url }}" class="dropdown-item">{{ page }}</a>
+        {% endfor %}
+        <div class="dropdown-divider"></div>
+        <a href="https://github.com/ClementD64" class="dropdown-item">Github&nbsp;{{fab("github")}}</a>
+        <a href="https://twitter.com/ClementD64" class="dropdown-item">Twitter&nbsp;{{fab("twitter")}}</a>
+        <a href="https://www.linkedin.com/in/clementd64/" class="dropdown-item">Linkedin&nbsp;{{fab("linkedin")}}</a>
+      </div>
+    </div>
+  </div>
+</nav>

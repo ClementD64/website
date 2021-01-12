@@ -1,0 +1,7 @@
+:80
+
+encode zstd gzip
+root * /app
+
+try_files /static{path} /dist{path}.html /dist{path}index.html
+file_server

@@ -1,0 +1,122 @@
+{% extends "_base.html" %}
+{% block title %}Projets{% endblock %}
+
+{% block css %}
+<style>
+  .table tbody tr {
+    border: none !important;
+  }
+</style>
+{% endblock %}
+
+{% from '_macro.html' import badge, card, devicon, fas, fab, link %}
+
+{% macro line(title, value) %}
+  <tr><td class="w-quarter pb-0">{{ title }}</td><td class="text-muted pb-0">{{ value }}</td></tr>
+{% endmacro %}
+
+{% macro link(url, value) %}
+  <a href="{{ url }}">{{ value }}</a>
+{% endmacro %}
+
+{% block main %}
+<div class="content">
+  <h1 class="text-center">Projets</h1>
+</div>
+
+<div class="content">
+  <h2>Projets Personnel</h2>
+
+  <div class="row">
+    {% call card(link("/network", "AS212625"), badge=[
+      fas("network-wired"),
+      devicon("linux-plain"),
+      devicon("debian-plain"),
+      devicon("docker-plain"),
+    ]) %}
+      <p>Mon réseau. Je l'utilise majoritairement pour ma connexion IPv6 et pour quelque expérimentation</p>
+    {% endcall %}
+
+    {% call card("animed (Anime Deamon)", badge=[
+      devicon("nodejs-plain"),
+      devicon("docker-plain"),
+      badge("WIP"),
+    ]) %}
+      <p>Programme qui télécharge automatiquement des torrents, depuis des trackers, selon des critères prédéfinis</p>
+    {% endcall %}
+
+    {% call card("ytpld (Youtube Playlist Downloader)", badge=[
+      devicon("nodejs-plain"),
+      devicon("docker-plain"),
+    ]) %}
+      <p>Programme qui télécharge et synchronise une playlist youtube (audio uniquement). Il coupe automatiquement un éventuel outro et rajoute des metadatas</p>
+    {% endcall %}
+
+    {% call card(link("https://github.com/ClementD64/tachiyomi-web-progress", "Tachiyomi Web Progress"), badge=[
+      devicon("nodejs-plain"),
+      devicon("html5-plain"),
+      devicon("css3-plain"),
+      devicon("javascript-plain"),
+    ]) %}
+      <p>Affiche votre historique de progression directement depuis les backup</p>
+      {{ link("https://clementd.fr/tachiyomi/", "Demo avec ma progression")}}
+    {% endcall %}
+
+    {% call card("Progress API", badge=[ badge("WIP") ]) %}
+      <p>Centralisation de divers historique de progression provenant de différente source</p>
+    {% endcall %}
+
+    {% call card("Viki Notifier", badge=[ devicon("python-plain") ]) %}
+      <p>Notification personnalisé pour {{link("https://www.viki.com/", "Viki")}} via Discord</p>
+    {% endcall %}
+  </div>
+</div>
+
+<div class="content">
+  <h2>Projets Scolaire</h2>
+
+  <div class="row">
+    {% call card("Prop Hunt Multijoueur", image="/img/prophunt.png", badge=[
+      devicon("html5-plain"),
+      devicon("css3-plain"),
+      devicon("javascript-plain"),
+      devicon("nodejs-plain"),
+    ]) %}
+      <p>Jeux multijoueur créé avec A-Frame et Node.js, en une semaine avec un groupe de 2 personnes (projet de deuxième semestre)</p>
+    {% endcall %}
+
+    {% call card("Solitaire", image="/img/solitaire.png", badge=[
+      devicon("php-plain"),
+    ]) %}
+      <p>Solitaire en ligne de commande écris en PHP, en une semaine (second projet de deuxième semestre)</p>
+    {% endcall %}
+
+    {% call card("Site Statique", image="/img/project-s1.png", badge=[
+      devicon("html5-plain"),
+      devicon("css3-plain"),
+    ]) %}
+      <p>Site statique créé avec bootstrap (projet de premier semestre)</p>
+    {% endcall %}
+
+    {% call card("Jardin Connecté", image="/img/project-bac.png", badge=[
+      devicon("cplusplus-plain"),
+      devicon("nodejs-plain"),
+      fab("raspberry-pi"),
+      fas("microchip"),
+      devicon("android-plain"),
+      fab("bluetooth-b"),
+    ]) %}
+      <p>Jardin connecté avec plusieurs capteurs et arrosage automatique (projet de bac)</p>
+    {% endcall %}
+
+    {% call card("Robot de surveillance climatique", image="/img/project-sin-1.jpg", badge=[
+      devicon("cplusplus-plain"),
+      fas("microchip"),
+      devicon("android-plain"),
+      fab("bluetooth-b"),
+    ]) %}
+      <p>Un véhicule avec plusieurs capteurs embarqués pour faire des mesures climatiques à différent emplacement</p>
+    {% endcall %}
+  </div>
+</div>
+{% endblock %}

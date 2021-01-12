@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    {% block head %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block stylesheet %}
+    <link rel='stylesheet' id='font-awesome-official-css' href='https://use.fontawesome.com/releases/v5.15.0/css/all.css' type='text/css' media='all' integrity="sha384-OLYO0LymqQ+uHXELyx93kblK5YIS3B2ZfLGBmsJaUyor7CpMTBsahDHByqSuWW+q" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@master/devicon.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/halfmoon@1.1.1/css/halfmoon-variables.min.css" rel="stylesheet" />
+    {% endblock %}
+    {% block css %}{% endblock %}
+    <title>{% block full_title %}{% block title %}{% endblock %} | Clément Dubreuil{% endblock %}</title>
+    {% endblock %}
+  </head>
+
+  <body class="dark-mode with-custom-webkit-scrollbars with-custom-css-scrollbars">
+    <div class="page-wrapper with-navbar">
+      {% include '_nav.html' %}
+
+      <div class="content-wrapper">
+        <div class="container">
+          {% block main %}{% endblock %}
+        </div>
+      </div>
+    </div>
+
+    {% block script %}
+    <script src="https://cdn.jsdelivr.net/npm/halfmoon@1.1.1/js/halfmoon.min.js"></script>
+    <script>
+      const date = new Date(Date.now() - Date.UTC(2001, 12, 25, 4)); // 5 AM UTC+1 (Europe/Paris)
+      date.setMonth(date.getMonth()+1); // fix the 0-11 month range to 1-12
+      document.querySelector('#version').textContent = `v${date.getFullYear() - 1970}.${date.getMonth()}.${date.getDate()-1}`;
+    </script>
+    {% endblock %}
+    {% block js %}{% endblock %}
+  </body>
+</html>

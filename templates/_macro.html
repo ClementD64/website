@@ -1,0 +1,35 @@
+{% macro badge(name, type="") %}
+<span class="align-middle badge {{ type }}">{{ name }}</span>
+{% endmacro %}
+
+{% macro fas(name) %}
+<i class="fas fa-{{ name }}"></i>
+{% endmacro %}
+
+{% macro fab(name) %}
+<i class="fab fa-{{ name }}"></i>
+{% endmacro %}
+
+{% macro devicon(name) %}
+<i class="devicon-{{ name }}"></i>
+{% endmacro %}
+
+{% macro card(name, image=None, badge=[], title_class="") %}
+<div class="col-lg-6">
+  <div class="card p-0">
+    {% if image %}
+    <div class="text-center">
+      <img src="{{ image }}" class="img-fluid rounded-top">
+    </div>
+    {% endif %}
+    <div class="content">
+      <h2 class="content-title {{ title_class }}">{{ name }} {{ badge|join(' ') }}</h2>
+      {{ caller() }}
+    </div>
+  </div>
+</div>
+{% endmacro %}
+
+{% macro link(url, value) %}
+  <a href="{{ url }}">{{ value }}</a>
+{% endmacro %}
