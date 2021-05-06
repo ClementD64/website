@@ -1,8 +1,6 @@
 # website
 
 ```yml
-version: "3.8"
-
 services: 
   caddy:
     build: github.com/ClementD64/website.git#main

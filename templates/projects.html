@@ -37,19 +37,18 @@
       <p>Mon réseau. Je l'utilise majoritairement pour ma connexion IPv6 et pour quelque expérimentation</p>
     {% endcall %}
 
-    {% call card("animed (Anime Deamon)", badge=[
+    {% call card(link("https://github.com/hehdon/stateless-monolith", "animed (Anime Deamon)"), badge=[
       devicon("nodejs-plain"),
       devicon("docker-plain"),
-      badge("WIP"),
     ]) %}
-      <p>Programme qui télécharge automatiquement des torrents, depuis des trackers, selon des critères prédéfinis</p>
+      <p>Downloader automatique utilisant plusieurs sources</p>
     {% endcall %}
 
-    {% call card("ytpld (Youtube Playlist Downloader)", badge=[
+    {% call card(link("https://github.com/ClementD64/ytpld", "ytpld (Youtube Playlist Downloader)"), badge=[
       devicon("nodejs-plain"),
       devicon("docker-plain"),
     ]) %}
-      <p>Programme qui télécharge et synchronise une playlist youtube (audio uniquement). Il coupe automatiquement un éventuel outro et rajoute des metadatas</p>
+      <p>Downloader automatique de playlist Youtube, avec détection des outros et édition des metadatas</p>
     {% endcall %}
 
     {% call card(link("https://github.com/ClementD64/tachiyomi-web-progress", "Tachiyomi Web Progress"), badge=[
