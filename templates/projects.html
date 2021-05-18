@@ -86,13 +86,14 @@
   <h2>Projets Scolaire</h2>
 
   <div class="row">
-    {% call card(link("https://github.com/balkanimes", "Balkanimes"), badge=[
+    {% call card(link("https://github.com/balkanimes", "Balkanimes"), image="/img/balkanimes.png", badge=[
       devicon("nodejs-plain"),
       devicon("vuejs-plain"),
       devicon("graphql-plain"),
       devicon("docker-plain"),
     ]) %}
-      <p>Downloader automatique extensible (projet de s4)</p>
+      <p>Downloader automatique extensible (projet de s4).</p>
+      <p>Créé avec {{ link("https://thomasz.me/", "Thomas Z") }}.</p>
     {% endcall %}
 
     {% call card("Prop Hunt Multijoueur", image="/img/prophunt.png", badge=[
@@ -100,20 +101,23 @@
       devicon("javascript-plain"),
       devicon("nodejs-plain"),
     ]) %}
-      <p>Jeux multijoueur créé avec A-Frame et Node.js, en une semaine avec un groupe de 2 personnes (projet de deuxième semestre)</p>
+      <p>Jeux multijoueur créé avec A-Frame et Node.js, en une semaine avec un groupe de 2 personnes (projet de deuxième semestre).</p>
+      <p>Créé avec {{ link("https://thomasz.me/", "Thomas Z") }}.</p>
     {% endcall %}
 
     {% call card("Solitaire", image="/img/solitaire.png", badge=[
       devicon("php-plain"),
     ]) %}
-      <p>Solitaire en ligne de commande écris en PHP, en une semaine (second projet de deuxième semestre)</p>
+      <p>Solitaire en ligne de commande écris en PHP, en une semaine (second projet de deuxième semestre).</p>
+      <p>Créé avec {{ link("https://thomasz.me/", "Thomas Z") }}.</p>
     {% endcall %}
 
     {% call card("Site Statique", image="/img/project-s1.png", badge=[
       devicon("html5-plain"),
       devicon("css3-plain"),
     ]) %}
-      <p>Site statique créé avec bootstrap (projet de premier semestre)</p>
+      <p>Site statique créé avec bootstrap (projet de premier semestre).</p>
+      <p>Créé avec {{ link("https://thomasz.me/", "Thomas Z") }}.</p>
     {% endcall %}
 
     {% call card("Jardin Connecté", image="/img/project-bac.png", badge=[
@@ -124,7 +128,7 @@
       devicon("android-plain"),
       fab("bluetooth-b"),
     ]) %}
-      <p>Jardin connecté avec plusieurs capteurs et arrosage automatique (projet de bac)</p>
+      <p>Jardin connecté avec plusieurs capteurs et arrosage automatique (projet de bac).</p>
     {% endcall %}
 
     {% call card("Robot de surveillance climatique", image="/img/project-sin-1.jpg", badge=[
@@ -133,7 +137,7 @@
       devicon("android-plain"),
       fab("bluetooth-b"),
     ]) %}
-      <p>Un véhicule avec plusieurs capteurs embarqués pour faire des mesures climatiques à différent emplacement</p>
+      <p>Un véhicule avec plusieurs capteurs embarqués pour faire des mesures climatiques à différent emplacement.</p>
     {% endcall %}
   </div>
 </div>
