@@ -28,8 +28,7 @@
     {% block script %}
     <script src="https://cdn.jsdelivr.net/npm/halfmoon@1.1.1/js/halfmoon.min.js"></script>
     <script>
-      const date = new Date(Date.now() - Date.UTC(2001, 12, 25, 4)); // 5 AM UTC+1 (Europe/Paris)
-      date.setMonth(date.getMonth()+1); // fix the 0-11 month range to 1-12
+      const date = new Date(Date.now() - Date.UTC(2001, 11, 25, 4)); // 2001-12-25 5 AM UTC+1 (Europe/Paris)
       document.querySelector('#version').textContent = `v${date.getFullYear() - 1970}.${date.getMonth()}.${date.getDate()-1}`;
     </script>
     {% endblock %}
